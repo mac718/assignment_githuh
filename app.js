@@ -36,31 +36,27 @@ class GitHuh {
 }
 
 const gitHuh = new GitHuh;
-
-
- prompt.start();
- 
   
-   prompt.message = colors.yellow();
-   prompt.delimiter = colors.yellow(":");
- 
-  prompt.start();
- 
-  prompt.get({
-    properties: {
-      command: {
-        description: colors.yellow("Enter command")
-      }
+prompt.message = colors.yellow();
+prompt.delimiter = colors.yellow(":");
+
+prompt.start();
+
+prompt.get({
+  properties: {
+    command: {
+      description: colors.yellow("Enter command")
     }
-  }, function (err, result) {
-    
-    let commandArr = result.command.split(' ');
-    
-    if (commandArr[1] == 'repos') {
-      gitHuh.repos(commandArr[2]);
-    } else if (commandArr[1] == 'starred') {
-      gitHuh.starred(commandArr[2]);
-    } else if (commandArr[1] == 'profile') {
-      gitHuh.profile(commandArr[2]);
-    };
-  });
+  }
+}, function (err, result) {
+  
+  let commandArr = result.command.split(' ');
+  
+  if (commandArr[1] == 'repos') {
+    gitHuh.repos(commandArr[2]);
+  } else if (commandArr[1] == 'starred') {
+    gitHuh.starred(commandArr[2]);
+  } else if (commandArr[1] == 'profile') {
+    gitHuh.profile(commandArr[2]);
+  };
+});
